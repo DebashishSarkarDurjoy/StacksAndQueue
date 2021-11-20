@@ -11,23 +11,21 @@ int main(void) {
     char ch = ' ';
     do {
         cin >> ch;
-
-        q.push(ch);
         freq[ch - 'a']++;
 
-        while (!q.empty()) {
-            int idx = q.front() - 'a';
-            if (freq[idx] > 1) {
-                q.pop();
-            }
-            else {
-                cout << "-->" << q.front() << endl;
-                break;
-            }
+        if (freq[ch - 'a'] <= 1) {
+            q.push(ch);
+        }
+        while (!q.empty() && freq[q.front() - 'a'] > 1) {
+            q.pop();
         }
         if (q.empty()) {
             cout << "-1" << endl;
         }
+        else {
+            cout << "-->" << q.front() << endl;
+        }
+
 
     } while (ch != '.');
 

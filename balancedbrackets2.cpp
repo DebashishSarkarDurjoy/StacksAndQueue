@@ -39,11 +39,14 @@ bool isBalanced(string input) {
 
         }
     }
-    return true;
+
+
+    if (s.empty()) return true;
+    else return false;
 }
 
 int main(void) {
-    string input = "((a+b)[] - c)";
+    string input = "((a+b)[] - c){";
     if (isBalanced(input)) {
         cout << "Balanced" << endl;
     }
